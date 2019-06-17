@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Add Comment" xml:space="preserve">
+    <value>Добавить комментарий</value>
+  </data>
+  <data name="Remove Comment" xml:space="preserve">
+    <value>Удалить комментарий</value>
+  </data>
+  <data name="Text" xml:space="preserve">
+    <value>Текст</value>
+    <comment>Text</comment>
+  </data>
+  <data name="Priсe" xml:space="preserve">
+    <value>Цена</value>
+    <comment>Priсe</comment>
+  </data>
+  <data name="SubCategory" xml:space="preserve">
+    <value>Подкатегория</value>
+    <comment>SubCategory</comment>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Телефон</value>
+    <comment>Phone</comment>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Адрес</value>
+    <comment>Address</comment>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Редактировать</value>
+    <comment>Edit</comment>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Удалить</value>
+    <comment>Delete</comment>
+  </data>
+  <data name="animal" xml:space="preserve">
+    <value>Животные</value>
+  </data>
+  <data name="Apartment" xml:space="preserve">
+    <value>квартира</value>
+  </data>
+  <data name="Audio and video" xml:space="preserve">
+    <value>Аудио и видео</value>
+  </data>
+  <data name="bicycle" xml:space="preserve">
+    <value>Велосипед</value>
+  </data>
+  <data name="bird" xml:space="preserve">
+    <value>Птицы</value>
+  </data>
+  <data name="Books and magazines" xml:space="preserve">
+    <value>Книги и журналы</value>
+  </data>
+  <data name="Business equipment" xml:space="preserve">
+    <value>производственное оборудование</value>
+  </data>
+  <data name="Cars" xml:space="preserve">
+    <value>Машины</value>
+  </data>
+  <data name="Children's clothing and shoes" xml:space="preserve">
+    <value>Детская одежда и обувь</value>
+  </data>
+  <data name="Clothes, shoes, accessories" xml:space="preserve">
+    <value>Одежда, обувь, аксессуары</value>
+  </data>
+  <data name="collecting" xml:space="preserve">
+    <value>Коллекционирование</value>
+  </data>
+  <data name="consumer electronics" xml:space="preserve">
+    <value>потребительская электроника</value>
+  </data>
+  <data name="desktop computer" xml:space="preserve">
+    <value>настольный компьютер</value>
+  </data>
+  <data name="dog" xml:space="preserve">
+    <value>Собаки</value>
+  </data>
+  <data name="food supply" xml:space="preserve">
+    <value>поставка продовольствия</value>
+  </data>
+  <data name="for business" xml:space="preserve">
+    <value>Для бизнеса</value>
+  </data>
+  <data name="For home and garden" xml:space="preserve">
+    <value>Для дома и сада</value>
+  </data>
+  <data name="Furniture and interior" xml:space="preserve">
+    <value>Мебель и интерьер</value>
+  </data>
+  <data name="Games, consoles and programs" xml:space="preserve">
+    <value>Игры, приставки и программы</value>
+  </data>
+  <data name="Goods for children and toys" xml:space="preserve">
+    <value>Товары для детей и игрушки</value>
+  </data>
+  <data name="Ground area" xml:space="preserve">
+    <value>земельный участок</value>
+  </data>
+  <data name="Health and beauty" xml:space="preserve">
+    <value>Красота и здоровье</value>
+  </data>
+  <data name="Hobbies and recreation" xml:space="preserve">
+    <value>Хобби и отдых</value>
+  </data>
+  <data name="home appliances" xml:space="preserve">
+    <value>бытовая техника</value>
+  </data>
+  <data name="Houses and cottages" xml:space="preserve">
+    <value>Дома и коттеджи</value>
+  </data>
+  <data name="Kitchen utensils and goods" xml:space="preserve">
+    <value>Посуда и товары</value>
+  </data>
+  <data name="laptop" xml:space="preserve">
+    <value>Ноутбук</value>
+  </data>
+  <data name="Motorcycles" xml:space="preserve">
+    <value>Мотоциклы</value>
+  </data>
+  <data name="Personal thing" xml:space="preserve">
+    <value>личные вещи</value>
+  </data>
+  <data name="ready business" xml:space="preserve">
+    <value>Готовый бизнес</value>
+  </data>
+  <data name="Realty" xml:space="preserve">
+    <value>недвижимость</value>
+  </data>
+  <data name="Resume" xml:space="preserve">
+    <value>резюме</value>
+  </data>
+  <data name="Rooms" xml:space="preserve">
+    <value>комнаты</value>
+  </data>
+  <data name="Service" xml:space="preserve">
+    <value>услуга</value>
+  </data>
+  <data name="Service offering" xml:space="preserve">
+    <value>сервисное предложение</value>
+  </data>
+  <data name="Tickets and travel" xml:space="preserve">
+    <value>Билеты и путешествия</value>
+  </data>
+  <data name="Transport" xml:space="preserve">
+    <value>Транспорт</value>
+  </data>
+  <data name="Trucks and special equipment" xml:space="preserve">
+    <value>Грузовики и спецтехника</value>
+  </data>
+  <data name="Vacancy" xml:space="preserve">
+    <value>Вакансии</value>
+  </data>
+  <data name="Watches and jewellery" xml:space="preserve">
+    <value>Часы и ювелирные изделия</value>
+  </data>
+  <data name="Water transport" xml:space="preserve">
+    <value>водный транспорт</value>
+  </data>
+  <data name="Work" xml:space="preserve">
+    <value>работа</value>
+  </data>
+  <data name="сat" xml:space="preserve">
+    <value>Кошки</value>
+  </data>
+  <data name="Enter a comment" xml:space="preserve">
+    <value>Введите комментарий</value>
+    <comment>Enter a comment</comment>
+  </data>
+</root>

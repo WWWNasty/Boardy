@@ -1,0 +1,31 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+
+@model BusinessLogicLayer.Objects.Dtos.Adverts.UpdateAdvertDto
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "_Layout";
+}
+
+<h2 class="list-adverts-header">@Localizer["Edit"]</h2>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <input type="hidden" asp-for="Id" />
+            <partial name="Partial/_AdvertForm" />
+
+            <div class="form-group mb-3 mt-3">
+                <input type="submit" value="@Localizer["Edit"]" class="btn btn-outline-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="text-success">@Localizer["Back to List"]</a>
+</div>

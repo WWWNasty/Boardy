@@ -1,0 +1,33 @@
+﻿@model AdvertListViewModel
+
+<ul class="pagination">
+    @{
+        //Максимальная длина списка страниц
+        const int maxPageListSize = 5;
+        if (Model.Query.CurrentPage != 1)
+        {
+            <li class="page-item"><a class="page-link" asp-route-id="@(Model.Query.CurrentPage - 1)">Backward</a></li>
+        }
+        //Вычисление номера списка страниц
+        int listNum = (int)Math.Floor((Model.Query.CurrentPage - 1.0d) / maxPageListSize);
+        for (int pageElem = listNum * maxPageListSize + 1, counter = 0; counter < maxPageListSize; counter++, pageElem++)
+        {
+            if (pageElem == Model.Query.CurrentPage)
+            {
+                <li class="page-item active"><a class="page-link">@(pageElem)</a></li>
+            }
+            else
+            {
+                <li class="page-item"><a class="page-link" asp-route-id="@(pageElem)">@(pageElem)</a></li>
+            }
+            if (Model.AllAdvertsAmount - Model.Query.AdvertsPerPage * pageElem <= 0)
+            {
+                break;
+            }
+        }
+        if (Model.AllAdvertsAmount - Model.Query.AdvertsPerPage * Model.Query.CurrentPage > 0)
+        {
+            <li class="page-item"><a class="page-link" asp-route-id="@(Model.Query.CurrentPage + 1)">Forward</a></li>
+        }
+    }
+</ul>

@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Flurl" Version="2.8.2" />
+    <PackageReference Include="Flurl.Http" Version="2.4.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\DataAccessLayer\DataAccessLayer.Abstraction\DataAccessLayer.Abstraction.csproj" />
+    <ProjectReference Include="..\..\DataAccessLayer\DataAccessLayer.Implementation\DataAccessLayer.Implementation.csproj" />
+    <ProjectReference Include="..\..\DataAccessLayer\DataAccessLayer.Models\DataAccessLayer.Models.csproj" />
+    <ProjectReference Include="..\BusinessLogicLayer.Abstraction\BusinessLogicLayer.Abstraction.csproj" />
+    <ProjectReference Include="..\BusinessLogicLayer.Objects\BusinessLogicLayer.Objects.csproj" />
+  </ItemGroup>
+
+</Project>

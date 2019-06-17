@@ -1,0 +1,23 @@
+@using IdentityServer
+@{
+    var version = typeof(IdentityServer4.Hosting.IdentityServerMiddleware).Assembly.GetName().Version.ToString();
+}
+
+<div class="welcome-page">
+    <div class="row page-header">
+        <div class="col-sm-10">
+            <h1>
+                <img class="icon" src="~/icon.jpg">
+                Welcome to Boardy Services
+            </h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-8">
+            <a href="https://localhost:44372">Boardy</a>
+        </div>
+        
+    </div>
+   
+</div>

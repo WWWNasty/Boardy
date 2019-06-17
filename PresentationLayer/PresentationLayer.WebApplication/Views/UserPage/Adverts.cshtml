@@ -1,0 +1,71 @@
+﻿@model AdvertListViewModel
+
+@{
+    ViewData["Title"] = "Личный кабинет";
+}
+<div class="container mt-2">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="list-group">
+                <a asp-action="GetUserAdverts" class="list-group-item list-group-item-action">Созданные объявления</a>
+                <a asp-action="GetUserLikedAdverts" class="list-group-item list-group-item-action">Избранное</a>
+
+            </div>
+        </div>
+        <div class="col-sm-9">
+            @{
+                if (Model.Adverts.Count != 0)
+                {
+                    var userId = User.Claims.FirstOrDefault(cl => cl.Type.Contains("nameidentifier")).Value;
+                    foreach (var adv in Model.Adverts)
+                    {
+                        <div class="card mb-1">
+                            <div class="card-body">
+                                <h3 class="card-title">@adv.Name</h3>
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <p class="card-text">
+                                            @adv.Description
+                                        </p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        @{
+                                            string imgSource = adv.AdvertImages.Any() ? adv.AdvertImages.First().Base64 : "/images/folio03.png";
+                                        }
+                                        <img src=@imgSource class="rounded" height="130" alt="@adv.Name" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="text-muted">@adv.CreatedDate</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        @{
+                                            if (adv.UserId == userId)
+                                            {
+                                                <div class="text-right">
+                                                    <a asp-controller="Advert" asp-action="Edit" asp-route-id="@adv.Id" class="card-link btn btn-success">Редактировать</a>
+                                                    <a asp-controller="Advert" asp-action="Delete" asp-route-id="@adv.Id" class="card-link btn btn-danger">Удалить</a>
+                                                </div>
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <p>Объявлений не найдено</p>
+                }
+            }
+
+            <nav aria-label="Page navigation example">
+                <partial name="_PageList" />
+            </nav>
+        </div>
+    </div>
+</div>

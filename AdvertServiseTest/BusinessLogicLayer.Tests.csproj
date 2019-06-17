@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.1.0" />
+    <PackageReference Include="Moq" Version="4.10.1" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLogicLayer\BusinessLogicLayer.Implementation\BusinessLogicLayer.Implementation.csproj" />
+    <ProjectReference Include="..\BusinessLogicLayer\BusinessLogicLayer.Objects\BusinessLogicLayer.Objects.csproj" />
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.Abstraction\DataAccessLayer.Abstraction.csproj" />
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.Implementation\DataAccessLayer.Implementation.csproj" />
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.Models\DataAccessLayer.Models.csproj" />
+  </ItemGroup>
+
+</Project>

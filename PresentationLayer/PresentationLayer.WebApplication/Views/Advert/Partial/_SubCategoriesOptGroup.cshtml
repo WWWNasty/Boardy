@@ -1,0 +1,21 @@
+﻿@using BusinessLogicLayer.Implementation.Services
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject ISubCategoryService SubCategoryService;
+@model int;
+
+@inject IViewLocalizer Localizer
+
+@{
+    var subCategoriesDto = await SubCategoryService.GetSubCategoriesAsync();
+    var subCategoryByParents = subCategoriesDto.GroupBy(subcategory => subcategory.Parent);
+}
+
+@foreach (var subCategoryByParent in subCategoryByParents)
+{
+    <optgroup label="@Localizer[subCategoryByParent.Key.Name]">
+        @foreach (var subCategory in subCategoryByParent)
+        {
+            <option value="@subCategory.Id" selected="@(Model == subCategory.Id)">@Localizer[subCategory.Name]</option>
+        }
+    </optgroup>
+}

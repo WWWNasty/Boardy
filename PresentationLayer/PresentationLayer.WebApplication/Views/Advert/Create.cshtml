@@ -1,0 +1,33 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+
+@model BusinessLogicLayer.Objects.Dtos.Adverts.CreateAdvertDto;
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 class="list-adverts-header">@Localizer["Create"]</h1>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <partial name="Partial/_AdvertForm" />
+
+
+            <br>
+
+            <div class="form-group mb-3 mt-3">
+                <input type="submit" value="@Localizer["Create"]" class="btn btn-outline-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="text-success">@Localizer["Back to List"]</a>
+</div>
+
+

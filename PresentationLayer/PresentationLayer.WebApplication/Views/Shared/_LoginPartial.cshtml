@@ -1,0 +1,29 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+
+@if (User.Identity.IsAuthenticated)
+{
+    <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" method="post" id="logoutForm" class="navbar-right">
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a class="nav-link">@Localizer["Hello"], @User.Claims.FirstOrDefault(claim => claim.Type == "name").Value!</a>
+            </li>
+            <li>
+                <a asp-controller="Advert" asp-action="Create" class="nav-link">@Localizer["Create New"]</a>
+            </li>
+            <li>
+                <a asp-controller="UserPage" asp-action="GetUserAdverts" class="nav-link">@Localizer["User page"]</a>
+            </li>
+            <li>
+                <a asp-controller="Account" asp-action="Logout" class="nav-link">@Localizer["Logout"]</a>
+            </li>
+        </ul>
+    </form>
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li><a asp-controller="Account" asp-action="Login" class="nav-link">@Localizer["Login"]</a></li>
+    </ul>
+}

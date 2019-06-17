@@ -1,0 +1,122 @@
+﻿@using System.Security.Claims
+@using Microsoft.AspNetCore.Http.Extensions
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+
+@model AdvertListViewModel
+@{
+    ViewData["Title"] = "List";
+
+    var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+}
+<div class="serch-query">
+    <form method="get">
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label class="control-label">@Localizer["Advert Category"]</label>
+                <select asp-for="Query.AdvertCategoryId" class="form-control">
+                    <option>@Localizer["Every"]</option>
+                    <partial name="Partial/_SubCategoriesOptGroup" model="@Model.Query.AdvertCategoryId"/>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="control-label">@Localizer["Advert Search String"]</label>
+                <input asp-for="Query.AdvertSearchString" placeholder="@Localizer["Search"]" class="form-control"/>
+            </div>
+            <div class="form-group col-md-3">
+                <label class="control-label">@Localizer["Advert Region"]</label>
+                <input list="addressFilterList" oninput="getAddressPrompt()" id="addressFilter" asp-for="Query.AdvertRegion" class="form-control" />
+                <datalist id="addressFilterList"></datalist>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label class="control-label">@Localizer["Sort Type"]</label>
+                <select asp-for="Query.SortType" class="form-control">
+                    <option value="NoSorting">@Localizer["No sorting"]</option>
+                    <option value="ByPriceAsc">@Localizer["Сheaper"]</option>
+                    <option value="ByPriceDesc">@Localizer["Expensively"]</option>
+                    <option value="ByPublishDateAsc">@Localizer["Old"]</option>
+                    <option value="ByPublishDateDesc">@Localizer["New"]</option>
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <div id="slider-range"></div>
+                <label class="control-label">@Localizer["Price Filter Max"]</label>
+                <input asp-for="Query.PriceFilterMax" class="form-control"/>
+            </div>
+            <div class="form-group col-md-4">
+                <label class="control-label">@Localizer["Price Filter Min"]</label>
+                <input asp-for="Query.PriceFilterMin" class="form-control"/>
+            </div>
+
+            <input type="submit" name="name" value="@Localizer["Search"]" class="btn btn-outline-success btn-lg btn-block"/>
+        </div>
+
+    </form>
+</div>
+<div class="mb-3 mt-3">
+    <h1 class="list-adverts-header ">@Localizer["List adverts"]</h1>
+    <small class="text-muted">@Localizer["Number of ads"] - @Model.AllAdvertsAmount</small>
+</div>
+<div class="container">
+    <div class="card-columns row">
+        @foreach (var advert in Model.Adverts)
+        {
+            var advertImageBase64 = advert.AdvertImages.FirstOrDefault()?.Base64;
+            var advertId = $"advert-{advert.Id}";
+            <div class="col-sm-12 col-md-6 col-lg-4 col-xs-2">
+                <div class="card" id="@advertId">
+                    <div class="parent">
+                        @if (string.IsNullOrEmpty(advertImageBase64))
+                        {
+                            <img src="/images/folio03.png" class="img-fluid" alt="Main advert image">
+                        }
+                        else
+                        {
+                            <img src="@advertImageBase64" class="card-img-top" alt="Main advert image">
+                        }
+                    </div>
+                    <div class="card-body">
+
+                        <h5 class="card-title text-truncate col-12 advert-card-text" data-toggle="tooltip" title="@advert.Name">
+                            <a asp-controller="Advert" asp-action="Get" asp-route-id="@advert.Id" class="text-success"> @Html.DisplayFor(modelItem => advert.Name)</a>
+                        </h5>
+                        <h6 class="text-truncate col-12 advert-card-text">@advert.Description</h6>
+                        <p class="card-text font-weight-bold text-success">@Localizer["Price"]: @advert.Price</p>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            var userLike = advert.Likes.FirstOrDefault(like => like.UserId == userId);
+
+                            if (userLike != null)
+                            {
+                                <form asp-controller="Like" asp-action="Delete" asp-route-returnUrl="@Context.Request.GetDisplayUrl()#@advertId">
+                                    <input type="hidden" name="Id" value="@userLike.Id"/>
+                                    <input type="hidden" name="AdvertId" value="@advert.Id"/>
+                                    <input type="hidden" name="UserId" value="@userId"/>
+                                    <input type="submit" value="@Localizer["Unlike"]" class="btn btn-danger"/>
+                                </form>
+                            }
+                            else
+                            {
+                                <form asp-controller="Like" asp-action="Add" asp-route-returnUrl="@Context.Request.GetDisplayUrl()#@advertId">
+                                    <input type="hidden" name="AdvertId" value="@advert.Id"/>
+                                    <input type="hidden" name="UserId" value="@userId"/>
+                                    <input type="submit" value="@Localizer["Like"]" class="btn btn-success"/>
+                                </form>
+                            }
+                        }
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">@advert.CreatedDate.ToLocalTime()</small>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<nav aria-label="Page navigation example">
+    <partial name="_PageList"/>
+</nav>
